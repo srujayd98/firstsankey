@@ -1,0 +1,54 @@
+<html>
+<body>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div id="sankey_multiple" style="width: 900px; height: 300px;"></div>
+
+<script type="text/javascript">
+  google.charts.load("current", {packages:["sankey"]});
+  google.charts.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows([
+       [ 'Revenue', 'Total Income', 11.306],
+       [ 'Other Income', 'Total Income', 0.277 ],
+       [ 'Total Income', 'Labour', 2.046 ],
+       [ 'Total Income', 'Goods and services purchased', 4.221 ],
+       [ 'Total Income', 'Net Impairment Losses', 0.038 ],
+       [ 'Total Income', 'Other Expenses', 1.418 ],
+       [ 'EBITDA', 'Depreciation and amortisation', 2.260 ],
+       [ 'Profit Before Tax', 'Income Tax Expense', 0.415 ],
+       [ 'EBIT', 'Finance Costs', 0.3 ],
+       [ 'Total Income', 'EBITDA', 3.861 ],
+       [ 'EBIT', 'Profit Before Tax', 1.349 ],
+       [ 'EBITDA', 'EBIT', 1.601 ],
+       [ 'Profit Before Tax', 'Profit for Period', 0.934 ], 
+       [ 'EBIT', 'Finance Income', 0.048 ],
+  
+    ]);
+
+    // Set chart options
+    var colors = ['#008000','#FF0000','#FF0000','#FF0000','#0000FF','#0000FF'];
+
+    var options = {
+     
+      sankey: {
+        node: {
+          colors: colors
+        },
+        link: {
+          colorMode: 'gradient',
+          colors: colors
+        }
+      }
+    };
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+    chart.draw(data, options);
+   }
+</script>
+</body>
+</html>
