@@ -35,12 +35,8 @@
 
     var options = {
      
-      sankey: {
-        node: { label: { fontName: 'Times-Roman',
-                         fontSize: 14,
-                         color: '#871b47',
-                         bold: true,
-                         italic: true } }
+           sankey: {
+        node: {
           colors: colors
         },
         link: {
@@ -49,6 +45,7 @@
         }
       }
     };
+
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
     chart.draw(data, options);
